@@ -53,6 +53,14 @@
         ctx.fillStyle = "red";
         ctx.fill()
 
+        const gr= ctx.createLinearGradient(190, 30, 5, 50, 30, 100);
+        gr.addColorStop("0.3", "orange")
+        gr.addColorStop("0.4", "yellow")
+        gr.addColorStop("0.01", "blue")
+        
+        ctx.fillStyle = gr;
+        ctx.fillRect(50, 100, 190, 20);
+
 
     </script>
 </body>
