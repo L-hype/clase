@@ -10,69 +10,51 @@
 
 <body>
 
-    <h1>canvas</h1>
-
+    <h1>Texto en canvas</h1>
     <canvas id="myCanvas"></canvas>
-
     <style>
         #myCanvas {
             width: 1400px;
             height: 700px;
-            border: 1px solid green;
+            border: 1px solid red;
+        }
+
+        body {
+            background-color: #000010;
         }
     </style>
     <script>
-
         var canvas = document.getElementById("myCanvas");
         var ctx = canvas.getContext("2d")
-        ctx.rotate(Math.PI /16)
-        
 
+        ctx.shadowColor = "rgba(190, 1, 1, 1)";
+        ctx.shadowBlur = 10;
+        ctx.globalAlpha = 10;
 
+        ctx.fillStyle = "red"
+        ctx.font = "oblique 42px Helvetica";
+        ctx.fillText("Caliente", 50, 88)
 
         ctx.beginPath();
-        ctx.arc(103, 70, 42, 0, 2 * Math.PI)
+        ctx.arc(20, 15, 10, 0, 2 * Math.PI)
+        ctx.fillStyle = "orange"
         ctx.stroke()
 
+        const gradient = ctx.createLinearGradient(70, 0, canvas.width, 0)
+        gradient.addColorStop("0", "yellow")
+        gradient.addColorStop("0.1", "orange")
+        gradient.addColorStop("1", "blue")
+
+        ctx.fillStyle = gradient;
+        ctx.fillText("Caliente!!", 50, 90)
 
         ctx.beginPath();
-        ctx.arc(163, 70, 43, 0, 2 * Math.PI)
+        ctx.arc(20, 15, 5, 0, 2 * Math.PI)
         ctx.fillStyle = "red";
         ctx.fill()
 
-        ctx.beginPath();
-        ctx.arc(163, 70, 43, 0, Math.PI)
-        ctx.fillStyle = "white";
-        ctx.fill()
-
-
-
-        ctx.beginPath();
-        ctx.arc(163, 70, 8, 0, 2 * Math.PI)
-        ctx.fillStyle = "#202020";
-        ctx.fill()
-        ctx.stroke()
-
-
-        ctx.beginPath();
-        ctx.arc(163, 70, 4, 0, 2 * Math.PI)
-        ctx.fillStyle = "white";
-        ctx.fill()
-        ctx.strokeStyle = "#000001"
-        ctx.stroke()
-
 
     </script>
-
-
-
-
-
-
-
-
-
-
 </body>
 
 </html>
