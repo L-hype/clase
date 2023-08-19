@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <canvas width="1600" height="800" id="myCanvas"></canvas>
+
+    <style>
+        #myCanvas {
+            background-color: #202020;
+        }
+    </style>
+
+    <script>
+        var canvas = document.getElementById("myCanvas");
+        var ctx = canvas.getContext("2d");
+        var is = true;
+
+        canvas.addEventListener("mouseout", () => {
+            console.log("estajalando");
+            is = !is;
+        });
+
+        canvas.addEventListener("mousedown", (e) => {
+
+            if (is == true) {
+
+                ctx.beginPath();
+                ctx.arc(e.offsetX, e.offsetY, 30, 0, 2 * Math.PI);
+                ctx.fillStyle = "red";
+                ctx.fill();
+                ctx.stroke();
+
+            } else {
+                ctx.beginPath();
+                ctx.rect(e.offsetX -30, e.offsetY -30, 60, 60);
+                ctx.fillStyle = "blue";
+                ctx.fill();
+                ctx.stroke();
+            }
+
+        });
+
+    </script>
+
+
+</body>
+
+</html>
