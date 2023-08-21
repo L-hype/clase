@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <canvas width="700" height="500" id="myCanvas"></canvas>
+
+    <style>
+        body {
+            margin: 0px auto;
+            padding: 0%;
+            background-color: #202020;
+        }
+
+        #myCanvas {
+            border: 1px solid white;
+        }
+    </style>
+
+    <script>
+        var canvas = document.getElementById("myCanvas");
+        var ctx = canvas.getContext("2d");
+        var color;
+
+        canvas.addEventListener("mouseover", () => {
+            var f = new Date;
+            console.log(f.toString());
+
+            var randomNum;
+            var randomNum1= Math.round(Math.random()*100);
+            randomNum = Math.random() * 140
+            randomNum = Math.round(randomNum);
+            var r = randomNum.toString();
+            f= f.getHours();
+            var g = f * randomNum1 *3;
+            var b = randomNum +80;
+            g = g.toString();
+            b = b.toString()
+            color = "rgb(" + r + "," + g + "," + b + ")"
+            console.log(color)
+            
+        })
+
+        canvas.addEventListener("mousedown", (e) => {
+            console.log("sii");
+            ctx.beginPath()
+            ctx.arc(e.offsetX, e.offsetY, 30, 0, 2 * Math.PI);
+            ctx.fillStyle = color;
+            ctx.fill();
+        })
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+
+
+
+</body>
+
+</html>
