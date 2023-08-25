@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <canvas width="1200" height="600" id="canvas"></canvas>
+    <style>
+        #canvas {
+            background-color: #202020;
+        }
+    </style>
+    <script>
+        var canvas = document.getElementById("canvas");
+        ctx = canvas.getContext("2d");
+
+        const colorBack = "RGB(49,153,206)"
+        const light = "RGB(63,173,222)"
+
+        const grd = ctx.createRadialGradient(460, 110, 5, 460, 110, 300);
+        grd.addColorStop(0.6, light);
+        grd.addColorStop(1, colorBack);
+        ctx.fillStyle = grd;
+        ctx.fillRect(0, 0, 1200, 600)
+
+        ctx.beginPath();
+        ctx.arc(490, 280, 90, 0, 2 * Math.PI);
+        ctx.fillStyle = "white";
+        ctx.fill()
+
+        ctx.beginPath();
+        ctx.moveTo(456, 310);
+        ctx.bezierCurveTo(360, 190, 500, 280, 465, 270)
+        ctx.stroke();
+
+
+        ctx.beginPath();
+        ctx.ellipse(520, 260, 6, 14, 0, 0, 2 * Math.PI);
+        ctx.fillStyle = "black";
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.ellipse(521, 254, 3, 6, 0, 0, 2 * Math.PI);
+        ctx.fillStyle = "white";
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.ellipse(560, 260, 6, 13, 0, 0, 2 * Math.PI);
+        ctx.fillStyle = "black";
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.ellipse(560, 254, 3, 6, 0, 0, 2 * Math.PI);
+        ctx.fillStyle = "white";
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.ellipse(522, 237, 20, 16, 0, 0.4, 1 * Math.PI);
+        ctx.fillStyle = "white";
+        ctx.fill();
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.ellipse(556, 241, 15, 10, 0, 0.1, 1 * Math.PI);
+        ctx.fillStyle = "white";
+        ctx.fill();
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.ellipse(540, 290, 30, 56, 0, 0, 1 * Math.PI);
+        ctx.fillStyle = "black";
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.moveTo(522, 302);
+        ctx.lineTo(528, 291);
+        ctx.lineTo(514, 291);
+        ctx.fillStyle = 'lightblue';
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.moveTo(562, 302);
+        ctx.lineTo(568, 291);
+        ctx.lineTo(554, 291);
+        ctx.fillStyle = 'lightblue';
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.moveTo(538, 300);
+        ctx.lineTo(543, 291);
+        ctx.lineTo(528, 291);
+        ctx.fillStyle = 'lightblue';
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.moveTo(548, 300);
+        ctx.lineTo(555, 291);
+        ctx.lineTo(540, 291);
+        ctx.fillStyle = 'lightblue';
+        ctx.fill();
+
+    </script>
+</body>
+
+</html>
