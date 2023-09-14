@@ -14,7 +14,6 @@
 </head>
 
 <body>
-
     <canvas id="myCanva" width="500px" height="500px"></canvas>
 
     <script>
@@ -97,25 +96,25 @@
 
             }
 
+            
 
+            if (x < tx + 400 && x + 40 > tx && y < ty + 400 && y + 400 > ty) {
+                if (dir == 1) {
+                    y += speed;
 
-            /*if (dir == 1) {
-                y += speed;
-                dir = 0;
-            }
-            if (dir == 2) {
-                y -= speed;
-                dir = 0;
-            }
-            if (dir == 3) {
-                x += speed;
-                dir = 0;
-            }
-            if (dir == 4) {
-                x -= speed;
-                dir = 0;
-            }*/
+                }
+                if (dir == 2) {
+                    y -= speed;
 
+                }
+                if (dir == 3) {
+                    x -= speed;
+
+                }
+                if (dir == 4) {
+                    x += speed;
+                }
+            }
 
             paint();
             window.requestAnimationFrame(update);
@@ -138,11 +137,12 @@
             ctx.fillRect(tx, ty, 20, 20);
             ctx.strokeRect(tx, ty, 20, 20);
 
-            
+            ctx.fillStyle = "black";
+            ctx.fillRect(tx, ty + 400, 400, 40);
+
         }
 
         this.se_tocan = function (target) {
-
 
         };
 

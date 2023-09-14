@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1>Texto en canvas</h1>
+    <canvas width="900" height="450" id="myCanvas"></canvas>
+    
+    <style>
+        #myCanvas {
+            width: 1400px;
+            height: 700px;
+            border: 1px solid red;
+            background-color: RGB(49,153,206);
+        }
+        body {
+        
+            background-color: #202020;
+        }
+    </style>
+    <script>
+        var canvas = document.getElementById("myCanvas");
+        var ctx = canvas.getContext("2d")
+        const color = "RGB(49,153,206)"
+        const light = "RGB(63,173,222)"
+
+        const grd = ctx.createRadialGradient(450,110,5,450,110,300);
+        grd.addColorStop(0.6,light);
+        grd.addColorStop(1,color);
+        ctx.fillStyle= grd;
+        ctx.fillRect(0,0,900,450)
+
+        
+        ctx.arc(400,200,20,360,300 * Math.PI)
+        ctx.fillStyle="black";
+        ctx.fill()
+        ctx.closePath();
+
+        ctx.beginPath();
+        ctx.arc(400,190,10,300,1 * Math.PI)
+        ctx.fillStyle="white";
+        ctx.fill()
+        
+
+        
+
+
+
+    </script>
+</body>
+
+</html>

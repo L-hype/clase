@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>juego</title>
+    <style>
+        canvas {
+
+            background-color: #202020;
+        }
+    </style>
+</head>
+
+<body>
+
+    <canvas id="myCanvas" width="650" height="500"></canvas>
+
+    <script>
+
+        var canvas = document.getElementById('myCanvas');
+        var ctx = canvas.getContext('2d');
+
+        const size = 35;
+        var juego = true;
+
+        class Elements {
+            constructor(x, y, width, height, color, speed) {
+                this.x = x;
+                this.y = y;
+                this.width = width;
+                this.height = height;
+                this.color = color;
+                this.speed = speed;
+                this.maxSpeed = 4;
+            }
+
+            moverY() {
+                if (this.y > canvas.height || this.y < 0) {
+                    this.speed = -this.speed;
+                }
+                this.y += this.speed;
+            }
+
+        }
+
+        class Jugador {
+            constructor(x, y, width, height, speed) {
+                this.x = x;
+                this.y = y;
+                this.width = width;
+                this.height = height;
+                this.speed = speed;
+            }
+
+            moverX() {
+                
+                this.x += this.speed;
+            }
+            moverY(){
+                tthis.y 
+            }
+
+        }
+
+        var enemigos = [
+            new Elements(850, 90, size, size, "rgb(0,0,255)", 1),
+            new Elements(500, 350, size, size, "rgb(0,0,255)", 2),
+            new Elements(150, 90, size, size, "rgb(0,0,255)", 3),
+            new Elements(250, 90, size, size, "rgb(0,0,255)", 2.9),
+            new Elements(400, 90, size, size, "rgb(0,0,255)", 2.5),
+            new Elements(550, 90, size, size, "rgb(0,0,255)", 4)
+        ];
+
+        var player = new Jugador(50, 200, size, size,  0);
+        player.moverX()
+
+        var update = ()=> {
+
+            enemigos.forEach( (element) =>{
+
+                if (chocan(player, element)) {
+                    perder("looserr");
+                }
+
+                element.moverY();
+            });
+
+            if (perder) {
+                window.requestAnimationFrame(parar);
+            }
+        }
+
+        document.onkeydown =  (e)=> {
+            let tecla = e.keyCode;
+            if (tecla == 39) {
+                player.speed = 2
+            } else if (tecla == 37) {
+                player.speed = -2;
+            } else if (tecla == 38) {
+                player.speed = 2
+            } else if (tecla == 40) {
+                player.speed = -2
+            }
+
+        }
+
+        document.onkeyup =  (event) =>{
+            player.speed = 0;
+        }
+
+        var chocan =  (rect1, rect2)=> {
+            //que no me valla a dar un valor negatico 
+            
+            var choqueEnX = Math.abs(rect1.x - rect2.x) <= Math.max(rect1.width, rect2.width);
+            var choqueEnY= Math.abs(rect1.y - rect2.y) <= Math.max(rect1.height, rect2.height);
+            return choqueEnX && choqueEnY;
+        }
+
+        //dibjubar los enemigo y el jugador 
+
+        var draw = ()=> {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            enemigos.forEach( (element)=> {
+                ctx.fillStyle = element.color;
+                ctx.fillRect(element.x, element.y, element.width, element.height)
+            });
+            ctx.fillRect(player.x, player.y, player.width, player.height);
+        }
+
+        var perder = () => {
+            juego = false;
+        }
+
+        var parar = () => {
+            update();
+            draw();
+        }
+
+        parar();
+
+    </script>
+
+
+</body>
+
+</html>

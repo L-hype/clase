@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <canvas width="900" height="450" id="myCanvas"></canvas>
+
+    <style>
+        #myCanvas {
+            margin: 0px auto;
+            background-color: #202020;
+        }
+    </style>
+
+    <script>
+        var canvas = document.getElementById("myCanvas");
+        var ctx = canvas.getContext("2d");
+        var x = 225, y = 225; 
+        var color;
+
+        document.addEventListener("keydown", (e) => {
+            if (e.keyCode == 'KeyW') {
+                y -= 10;
+            }
+            if (e.keyCode == 83) {
+                y += 10;
+            }
+            if (e.keyCode == 65) {
+                x -= 10;
+            }
+            if (e.keyCode == 68) {
+                x += 10;
+            }
+            update();
+        });
+
+        color = random_rgba();
+        ctx.fillStyle = color;
+
+        ctx.fillRect(x, y, 50, 50);
+
+        function random_rgba() {
+            let o = Math.round, r = Math.random, s = 255;
+            return 'rgba(' + o(r() * s) + ',' + o(r() * s) + ',' + o(r() * s) + ',' + r().toFixed(1) + ')';
+        }
+
+        function update() {
+            ctx.fillStyle = "#202020";
+            ctx.fillRect(0, 0, 900, 450)
+            color = random_rgba();
+            ctx.fillStyle = color;
+            ctx.fillRect(x, y, 50, 50);
+        }
+
+    </script>
+
+
+</body>
+
+</html>
