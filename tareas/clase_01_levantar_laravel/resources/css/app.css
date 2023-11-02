@@ -1,0 +1,16 @@
+* {
+    margin: 0px auto;
+    padding: 0px;
+    text-align: center
+}
+
+body {
+    background-color: #000
+}
+
+.content {
+    background-color: #103030;
+    width: 90%;
+    height: 100vh;
+    color: cadetblue;
+}
