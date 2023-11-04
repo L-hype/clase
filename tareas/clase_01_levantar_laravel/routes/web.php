@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Saludo; 
 
 /*
 |--------------------------------------------------------------------------
@@ -12,11 +13,15 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+Route::get('/hola',function (){
+    return view('welcome');
+});
+
+Route::get('/{name}/{lastN}',[Saludo::class, 'saludo']); 
+
+
 Route::get('/pagina1/{nombre}/{apellido}', function ($nombre, $apellido) {
-
-    $userName = $nombre;
-    $userLast = $apellido;
-
     return getNames($nombre, $apellido);
 });
 
